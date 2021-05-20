@@ -34,32 +34,5 @@ class Player
     else
       raise InvalidDifficulty
     end
-
-   
   end
 end
-
-
-# class Foo
-#   @bar // privé, impossible d'y accéder
-#
-#  // getter
-#  def get_bar // public method
-#    return @bar
-#  end
-#
-#  // setter
-#  def set_bar(bar) // public method
-#    @bar = bar
-#  end
-# end
-
-# class Foo
-#  attr_reader: bar
-#  @bar // read only
-#
-#  // setter
-#  def set_bar(bar) // public method
-#    @bar = bar
-#  end
-# end

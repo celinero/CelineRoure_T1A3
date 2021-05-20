@@ -1,9 +1,6 @@
 require_relative "../Player"
 
 describe "Player" do
-
-  
-
   it "should initialize a new player" do
     player1 = Player.new("Ada")
     expect(player1.name).to eq("Ada")
@@ -51,26 +48,4 @@ describe "Player" do
     expect { player1.set_difficulty("foo") }.to raise_error InvalidDifficulty
     expect { player1.set_difficulty(9) }.to raise_error InvalidDifficulty
   end
-
-  # it "should throw an error when difficulty is not 'easy', 'medium' or 'hard'" do
-  #   # player1 = Player.new("Ada")
-  #   # player1.set_difficulty("medium")
-  #   # expect(player1.difficulty).to eq("medium")
-  # end
-
-  # it "should be able to update the total score" do
-  #   player1 = Player.new("Ada")
-  #   player1.total_score = 100
-  #   expect(player1.total_score).to eq(100)
-  # end
 end
-
-#
-# 
-#
-#
-#
-#
-#
-#
-#
