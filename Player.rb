@@ -4,21 +4,13 @@ class InvalidNewScore < StandardError
   end
 end
 
-class InvalidDifficulty < StandardError
-  def initialize(msg="new_difficulty should be a easy, medium or hard")
-      super 
-  end
-end
-
 class Player
-  attr_reader :name, :difficulty, :total_score
+  attr_reader :name, :total_score
 
   def initialize(name)
     @name = name
-    @difficulty = "easy"
     @total_score = 0
   end
-
 
   def add_to_total_score(new_score)
     if !new_score.is_a? Numeric 
@@ -26,13 +18,5 @@ class Player
     end
 
     @total_score += new_score
-  end
-
-  def set_difficulty(new_difficulty)
-    if new_difficulty == "easy" || new_difficulty == "medium" || new_difficulty == "hard"
-      @difficulty = new_difficulty
-    else
-      raise InvalidDifficulty
-    end
   end
 end
