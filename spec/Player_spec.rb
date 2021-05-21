@@ -27,4 +27,9 @@ describe "Player" do
     expect { player1.add_to_total_score("foo") }.to raise_error InvalidNewScore
     expect { player1.add_to_total_score([]) }.to raise_error InvalidNewScore
   end
+
+  it "should return InvalidName when name is nil" do
+    expect { Player.new(nil) }.to raise_error InvalidName
+    expect { Player.new("") }.to raise_error InvalidName
+  end
 end

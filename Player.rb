@@ -4,10 +4,19 @@ class InvalidNewScore < StandardError
   end
 end
 
+class InvalidName < StandardError
+  def initialize(msg="name cannot be empty")
+      super 
+  end
+end
+
 class Player
   attr_reader :name, :total_score
 
   def initialize(name)
+    if name.nil? || name.empty?
+      raise InvalidName
+    end
     @name = name
     @total_score = 0
   end
