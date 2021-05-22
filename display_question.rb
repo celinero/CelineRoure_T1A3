@@ -9,7 +9,7 @@ def display_question(question, difficulty, player)
     answer = prompt.ask(question[:label])
   end
     
-  if answer && answer.downcase == question[:answer]
+  if answer && answer.downcase == question[:answer].downcase
     player.add_to_total_score(10)
   end
 end
