@@ -6,18 +6,23 @@ require_relative "./get_questions"
 def trivia
   players = how_many_players 
   difficulty = choose_difficulty
-  questions = get_questions(5)
+  questions = get_questions(3)
 
   players.each do |player|
-    puts "#{player.name}"
+    puts "\n"
+    puts "******************************************"
+    puts "Player #{player.name} it's your turn!"
 
     questions.each do |question|
       display_question(question, difficulty, player)
     end
   end
   
-  players.each do |player|
-    puts "#{player.name}: #{player.total_score} points"
+  new_players = players.sort_by {|player| -player.total_score}.each do |player|
+    puts "\n"
+    puts "*************************************************************"
+    puts "Player #{player.name} has a total score of  #{player.total_score} points"
+  
   end
 end
 
