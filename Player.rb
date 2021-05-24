@@ -1,11 +1,11 @@
-class InvalidNewScore < StandardError
-  def initialize(msg="new_score should be a numeric")
+class InvalidName < StandardError
+  def initialize(msg="name cannot be empty")
       super 
   end
 end
 
-class InvalidName < StandardError
-  def initialize(msg="name cannot be empty")
+class InvalidNewScore < StandardError
+  def initialize(msg="new_score should be a numeric")
       super 
   end
 end
