@@ -5,8 +5,20 @@ def display_question(question, difficulty, player)
 
   if difficulty == "Easy"
     answer = prompt.select(question[:label], question[:multi_choice])
-  else
+  end
+
+  if difficulty == "Medium"
     answer = prompt.ask(question[:label])
+  end
+
+  if difficulty == "Hard"
+    timeout = Time.now.to_i + 5
+    answer = prompt.ask(question[:label])
+
+    if Time.now.to_i > timeout
+      answer = ""
+      puts "Timeout!".colorize(:yellow)
+    end
   end
     
   if answer && answer.downcase == question[:answer].downcase
