@@ -9,9 +9,9 @@ def get_questions(number_of_questions)
     multi_choice: ["Seeker", "Bludger", "Chaser", "Keeper"],
     answer: "Seeker"
   }, {
-    label: "Who is Fluffy",
-    multi_choice: ["Hermione's cat", "Harry's owl", "Hagrid's dragon", "A three headed dog"],
-    answer: "a three headed dog"
+    label: "What is Lord Voldemort’s real name?",
+    multi_choice: ["Peter Pettigrew", "James Sirius Potter", "Tommy Riddle Marvolo", "Tom Marvolo Riddle"],
+    answer: "A three headed dog"
   }, {
     label: "Who kills Professor Dumbledore?",
     multi_choice: ["Drago Malfoy", "Severus Snape", "Fenrir Greyback", "Bellatrix Lestrange"],
@@ -48,6 +48,18 @@ def get_questions(number_of_questions)
     label: "What does the scar on Harry’s head look like?",
     multi_choice: ["The moon", "A broomstick", "A lightning bolt", "An owl"],
     answer: "A lightning bolt"
+  }, {
+    label: "Dumbledore is an old English word for what?",
+    multi_choice: ["Magician", "Bumblebee", "A wise man", "A person who rambles"],
+    answer: "Bumblebee"
+  }, {
+    label: "In what year was the first Harry Potter book published?",
+    multi_choice: ["1990", "1995", "1997", "2000"],
+    answer: "1997"
+  }, {
+    label: "How many languages have the Harry Potter books been translated into?",
+    multi_choice: ["12", "45", "67", "83"],
+    answer: "9 and 3/4"
   }]
 
   return questions.shuffle.first(number_of_questions)
