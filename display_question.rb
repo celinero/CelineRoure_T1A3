@@ -12,7 +12,7 @@ def display_question(question, difficulty, player)
   end
 
   if difficulty == "Hard"
-    timeout = Time.now.to_i + 5
+    timeout = Time.now.to_i + 10
     answer = prompt.ask(question[:label])
 
     if Time.now.to_i > timeout
@@ -21,7 +21,12 @@ def display_question(question, difficulty, player)
     end
   end
     
-  if answer && answer.downcase == question[:answer].downcase
+  if answer.nil? || answer.empty?
+    return
+  end
+
+  if question[:answer].map{ |word| word.downcase }.include?(answer.downcase.to_s)
     player.add_to_total_score(10)
   end
 end
+
