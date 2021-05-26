@@ -1,5 +1,7 @@
+require "colorize"
+
 class InvalidName < StandardError
-  def initialize(msg="name cannot be empty")
+  def initialize(msg="Please make sure to provide a name".colorize(:red))
       super 
   end
 end
@@ -17,7 +19,7 @@ class Player
     if name.nil? || name.empty?
       raise InvalidName
     end
-    @name = name
+    @name = name.capitalize
     @total_score = 0
   end
 
