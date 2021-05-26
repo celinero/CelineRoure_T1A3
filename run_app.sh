@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ruby trivia.rb
+ruby trivia.rb $1
