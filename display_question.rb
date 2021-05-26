@@ -17,7 +17,7 @@ def display_question(question, difficulty, player)
 
     if Time.now.to_i > timeout
       answer = ""
-      puts "Timeout!".colorize(:yellow)
+      puts "Timeout!".colorize(:red)
     end
   end
     
