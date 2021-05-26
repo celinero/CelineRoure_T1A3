@@ -3,26 +3,40 @@ require_relative "./choose_difficulty"
 require_relative "./get_questions"
 require_relative "./display_question"
 require_relative "./display_leaderboard"
+require_relative "./command_line_args"
 
 require "colorize"
 require "artii"
 
 def greeting
+  slant = Artii::Base.new :font => 'slant'
+  roman = Artii::Base.new :font => 'roman'
+  
   puts "\n"
-  a = Artii::Base.new :font => 'slant'
-  puts a.asciify('Welcome to').colorize(:yellow)
-  a = Artii::Base.new :font => 'roman'
-  puts a.asciify('Harry Potter').colorize(:cyan)
-  a = Artii::Base.new :font => 'slant'
-  puts a.asciify('Trivia Game !').colorize(:yellow)
+  puts slant.asciify('Welcome to').colorize(:yellow)
+  puts roman.asciify('Harry Potter').colorize(:cyan)
+  puts slant.asciify('Trivia Game !').colorize(:yellow)
   puts "\n"
-
 end
 
-
+def instructions
+puts " -------------------------------------------------------------------------------------- "
+puts " |  You are running a trivia game with a Harry Potter theme.                          | "
+puts " |  It is a single or multi-players game.                                             | "
+puts " |  You can choose between 3 difficulties:                                            | "
+puts " |    Easy mode will be a multi-choice answers,                                       | "
+puts " |    Medium mode will ask you to type your answer,                                   | "
+puts " |    Hard mode will have a 10 seconds timer to type your answer.                     | "
+puts " |  After each player answered all the questions, the leaderboard will be displayed.  | "
+puts " |  Good luck and have fun!                                                           | "
+puts " -------------------------------------------------------------------------------------- " 
+puts "\n"
+end
 
 def trivia
   greeting 
+
+  instructions
 
   players = how_many_players 
   difficulty = choose_difficulty
