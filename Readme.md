@@ -2,7 +2,7 @@
 
 # Software development Plan
 
-## Purpose and scope (300-500 words)
+## Purpose and scope 
 
 ### Describe what the application do
 
@@ -35,9 +35,9 @@ The app includes several steps:
 
 1. The first feature is **How_many_players**:
 
-   ![how_many_players.rb code](/Users/celineroure/Desktop/CelineRoure_TIA3/docs/Screenshot of code/how_many_players.rb_code.png)
+   ![how_many_players.rb code](/Users/celineroure/Desktop/CelineRoure_TIA3/docs/Screenshot of code/how_many_players.png)
 
-   ![class player.rb code](/Users/celineroure/Desktop/CelineRoure_TIA3/docs/Screenshot of code/player.rb_code.png)
+   ![class player.rb code](/Users/celineroure/Desktop/CelineRoure_TIA3/docs/Screenshot of code/player.png)
 
    When the app starts running, first the user will be asked how many players want to play. The user will have to choose between 1 and 4, then to enter the name of each player.
 
@@ -97,25 +97,43 @@ The app includes several steps:
 
 ### How the user will find out how to interact, use each feat
 
-Intro with Ruby **Gem artii**, **Gem colorize**
+First the user can read this Readme documentation to learn more about the program, especially the help documentation below.  After cloning the repo and installing the app, the user will be welcome to the game with some ASCII art and the instructions will appear. The game is quite simple, all the steps are described and the user will be asked to respond a few questions before starting the game.
 
 ### How the user will interact, use the feat
 
-uses input and output in 2 or more sophisticated ways
+There are two ways the user will interact: he/she will either have to select an option by moving the down and/or up arrow for multi-choice questions or type the answer.
 
-The users will have to select an option or type it.
+For the feature players, the user will need to choose an input for the numbers of players then type an input for his/her name. 
 
-For the feature players, he will have to choose an input, then type an input for his/her name. 
+For difficulty, the user will need to select an input between easy, medium or Hard. 
 
-For difficulty, he needs to select an input then depending on which difficulty the user has chosen, he/she will have the possibility to select an answer from a predefined choices (mode "easy") or type his answer (mode "medium" and "hard")
+When the quiz starts, depending on which difficulty the user has chosen, he/she will have the possibility to select an answer from a predefined choices (mode "easy") or type his answer (mode "medium" and "hard").
+
+At the end, once the users have finished responding all questions, they will be able to see their result and in which position they are.
 
 ### how errors will be handled and displayed
 
-Gem Rspec
+I have created some custom error: InvalidName and InvalidNewScore. If the user don't enter his/her name, a message will appear saying "Please make sure to provide a name" and then ask again to provide a name, until it's done or "new_score should be a numeric"
+
+![class player.rb code](/Users/celineroure/Desktop/CelineRoure_TIA3/docs/Screenshot of code/player.png)
+
+![how_many_players.rb code](/Users/celineroure/Desktop/CelineRoure_TIA3/docs/Screenshot of code/how_many_players.png)
+
+![error Invalidnane](/Users/celineroure/Desktop/CelineRoure_TIA3/docs/Screenshot of code/error_handling.png)
+
+
+
+I create some Test Driven Development too, concerning the class Player, as it's mainly on that feature that error can happen. I use the Ruby Gem Rspec. It verify that the user can initialize a new player and have a total_score of ) when starting , later or that error like Invalidname and InvalidNewScore are working fine.
+
+![TDD](/Users/celineroure/Desktop/CelineRoure_TIA3/docs/Screenshot of code/TDD.png)
+
+
 
 ## Diagram with control flow
 
-show logic and integration of the feat
+This is the control flow for Harry Potter trivia game. As you can see, I prefer to separate each feature and do a summary on the first diagram. You can see the details of each feature in the following diagrams and can find them easily with the associated colours. For example how_many_players feature is the blue diagram.
+
+For how_many_players, I use a for loop, for display_question I used conditionnals with if statements.
 
 ![trivia flowchart](/Users/celineroure/Desktop/CelineRoure_TIA3/docs/main_flowchart.png)
 
@@ -127,53 +145,51 @@ show logic and integration of the feat
 
 ## Implementation plan
 
+You can see the evolution of my project with the different Trello Boards. It was very useful at the start to create all the tickets for each requirements, features, asked. Then it helped my to keep track of the project progress.
+
 ![Trello boards](/Users/celineroure/Desktop/CelineRoure_TIA3/docs/Trello/Screen Shot 2021-05-19 at 9.43.50 am.png)
 
 ![Trello boards](/Users/celineroure/Desktop/CelineRoure_TIA3/docs/Trello/Screen Shot 2021-05-22 at 4.29.42 pm.png)
 
 ![Trello boards](/Users/celineroure/Desktop/CelineRoure_TIA3/docs/Trello/Screen Shot 2021-05-26 at 11.29.57 pm.png)
 
+![Trello boards](/Users/celineroure/Desktop/CelineRoure_TIA3/docs/Trello/Screen Shot 2021-05-27 at 9.06.30 pm.png)
 
+The main file Trivia.rb  require others files that represent each feature.
 
-1. **How_many_players**
+1. **How_many_players** / **Player**
 
-   how each feat will be implemented
+   The tasks of this feature is to capture how many players are going to play, then register them with a name and a score. That score will allow later to create a leaderboard. I used a class with instance variables and create methods and classses to raise errors. This feature count a for loop to register each player's name and add it to an array with a rescue error handling.
 
-   checklist of tasks (min 5)
+   This feature was my priority number one, essential to run the app
 
-   prioritise: 1st
-
-   deadlines, duration
+   It took me around 4 hours to finalise it, on several days, as I was coming back to fix some error issues, especially with the TDD and Rspec.
 
 2. **Choose_difficulty**
 
-   how each feat will be implemented
+   This feature was easy to make once I understood how worked TTY-Prompt Ruby gem with the method select. Its goal was to ask the user to choose a difficulty for the game, as indicated by its name.
 
-   checklist of tasks (min 5)
+   It was my priority number 3.
 
-   prioritise: 2nd
+   It took me one hour to implement it.
 
-   deadlines, duration
+3. **Display_questions**/ **get_questions**
 
-3. **Display_questions**
+   This feature was the hardest one, as I have to think about how to store the questions and answer. I came back and fixed it multiple times. Its goal was to display the question and then capture correctly the answer depending on the difficulty of the game. I use if statement and method ask or prompt and create a timer, that gave me hard time. I tried to install a gem but didn't do the expected work so I came up with an idea inspired from online to implement it.
 
-   how each feat will be implemented
+   All the questions are recorded in an array of hashes with the keys: label, multi-choice and answer.
 
-   checklist of tasks (min 5)
+   This was my priority number 2.
 
-   prioritise: 3rd
+   It took me aroud 5 hours and I had to come back to modify it, especially for the answer, it was originally a string and I decided to change it to an array to let the player more chances to find the correct answer.
 
-   deadlines, duration
+4. **Display_leaderboard**
 
-4. **Display_scores**
+   The last feature was finalised yesterday, as I was not sure about the outcome. Its main goal is to congratulate the winner and display by descending way the players name with the score who has the most total of points to the lowest.
 
-   how each feat will be implemented
+   It was my last priority.
 
-   checklist of tasks (min 5)
-
-   prioritise: 4th or last
-
-   deadlines, duration
+   It took me around 2 hours in total to make it
 
 
 
@@ -190,7 +206,7 @@ ruby -v
 
 Second you need to clone the repo.
 
-Third, you will need the gem libraries:
+Third, you will need the gem libraries. Bundler that is a manager should download the four Gem needed for this app: Artii, Colorize, TTY-prompt and Rspec.
 
 ```sh
 # install the dependency manager bundler
